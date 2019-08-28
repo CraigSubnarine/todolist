@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -65,4 +65,23 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify -->
+
+### Description
+Create a web application where a user can create a list of things that they need to do.
+
+### Functional Requirements:
+A user should be able to add an item, an item is a string describing what the person has to do.
+A user should be able to mark an item as completed
+A user should be able to remove an item from the list 
+
+### Non-functional Requirements:
+The application should be colour themed
+The theme should be changeable by the click of a button
+Use cookies as storage 
+
+### Notes:
+Use of react for frontend will be awarded points as this is the framework that will be used (react is first choice, if user is proficient with another frontend framework e.g. vue, angular, that would be considered as well)
+Syntax ES6 will be awarded 
+Proficiency in functional programming paradigm will be rewarded
+Proficiency in software engineering will be greatly awarded points as well (e.g. Components having a shared state for theming)
