@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {BrowserRouter, Route} from 'react-router-dom'
 import uuid from 'uuid'
 import Axios from 'axios';
+import cookie from 'react-cookies'
 
 import Todos from './components/Todos'
 import AddTodo from './components/AddTodo'
@@ -11,9 +12,10 @@ import About from './components/pages/About'
 import './App.css'
 
 class App extends Component{
+  
   state = {
     todos:[],
-    darkMode: false
+    darkMode: this.getInitialTheme()
   }
 
   //Gets todo items data form a server
@@ -22,7 +24,7 @@ class App extends Component{
     .then(res => this.setState({todos: res.data}))
   }
 
-  //Change Item status
+  //Change Item status form done to undone or vice versa
   toggleComplete = (id) => {
 
     this.setState({todos: this.state.todos.map(todo => {
@@ -30,9 +32,7 @@ class App extends Component{
           todo.completed = !todo.completed
         }
         return todo;
-      })
-    });
-
+      })});
   }
 
   //Delete Item
@@ -53,11 +53,22 @@ class App extends Component{
           })}))
   }
 
-  //Changes the class of the main div therefore changing th CSS assosiated with it
+  //Changes the class of the main div therefore changing th CSS assosiated with it.
   changeTheme = () => {
     console.log('Need this to work')
     let temp = !this.state.darkMode
+    
     this.setState({darkMode:temp})
+    
+    let themeing = temp ? 'true' : ''
+
+    cookie.save('theme', themeing, {path:'/'})
+  }
+
+  //To get stored cookies for theme
+  getInitialTheme(){
+    const savedTheme = cookie.load('theme');
+    return savedTheme ? true : false;
   }
 
   render() {

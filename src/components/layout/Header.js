@@ -28,7 +28,6 @@ class Header extends Component{
 const headerStyle = {
     background: '#333',
     color:'#fff',
-    textAlign: 'center',
     padding: '20px'
 }
 
