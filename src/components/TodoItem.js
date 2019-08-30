@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {Button, Card, Container, Row, Col} from 'react-bootstrap';
+// import Card from 'react-bootstrap/Card';
 
 
 class TodoItem extends Component{
     getStyle = () => {
         return {
-            padding: '10px',
-            borderBottom: '1px #ccc dotted',
-            textDecorationLine: this.props.todo.completed ? 'line-through' : 'none'
+            textDecorationLine: this.props.todo.completed ? 'line-through' : 'none',
         }
     }
 
@@ -15,26 +15,27 @@ class TodoItem extends Component{
     render(){
         const {id, title, completed} = this.props.todo;
         return(
-            <div id="todoItem" style={this.getStyle()}>
-                <p>
-                    <input type="checkbox" checked={completed} onChange={this.props.toggleComplete.bind(this, id)}/>
-                    {title}
-                    <button style={btnStyle} onClick={this.props.deleteItem.bind(this, id)}>Delete</button>
-                </p>
+            <div className="container" id="todoItem" style={this.getStyle()}>
+                <Container>
+                    <Card>
+                        <Card.Body>
+                            <Row>
+                                <Col sm={8}>
+                                    <input type="checkbox" checked={completed} onChange={this.props.toggleComplete.bind(this, id)}/> 
+                                    {' '}
+                                    {title}
+                                </Col>
+                                <Col sm={4}>
+                                    <Button variant="danger" onClick={this.props.deleteItem.bind(this, id)}>Delete</Button>
+                                </Col>
+                            </Row>
+                        </Card.Body>
+                    </Card>
+                </Container>
             </div>
         )
         
     }
-}
-
-const btnStyle = {
-    background: '#ff0000',
-    color: '#fff',
-    border: 'none',
-    padding: '5px 9px',
-    borderRadius: '2px',
-    cursor: 'pointer',
-    float: 'right'
 }
 
 //PropTypes

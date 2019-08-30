@@ -7,11 +7,11 @@ class Toggle extends Component {
 
   render() {
     
-    // let darkMode=this.props.darkMode
+    let darkMode=this.props.darkMode
 
     return (
       <div className='toggle-conatiner'>
-        {/* <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span> */}
+        <span style={{ color: darkMode ? "grey" : "yellow" }}>☼</span>
         <span className="toggle">
             <input
               checked={this.props.darkMode}
@@ -22,7 +22,7 @@ class Toggle extends Component {
             />
             <label htmlFor="checkbox" />
         </span>
-        {/* <span style={{ color: darkMode ? "white" : "grey" }}>☾</span> */}
+        <span style={{ color: darkMode ? "white" : "grey" }}>☽</span>
       </div>
     )
   }

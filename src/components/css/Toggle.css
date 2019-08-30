@@ -1,7 +1,6 @@
 .toggle {
     position: relative;
     padding: 0 4px;
-    display: flex;
     align-items: center;
   }
   
@@ -40,11 +39,11 @@
     opacity: 0.9;
     background-color: cyan;
   }
-  
+/*   
   .toggle-container {
     display: flex;
     margin: 0 auto;
-  }
+  } */
   
   .toggle-container > span {
     font-size: 1.2em;

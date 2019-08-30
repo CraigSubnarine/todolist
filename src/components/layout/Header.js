@@ -1,34 +1,30 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
+import {Navbar, Nav} from 'react-bootstrap'
 
 import Toggle from '../Toggle'
 
 class Header extends Component{
         
     render() {
-        // this.props.changeTheme()
+
         return (
-            <header style={headerStyle}>
-                <div>
-                    <h1>TodoList</h1>
-                </div>
-                <div>
-                    <Link to='/' style={linkStyle}>Home</Link> 
-                    | 
-                    <Link to='/about' style={linkStyle}>About</Link>
-                </div>
-                <div>
+            <header>  
+                <Navbar bg="dark" variant="dark">
+                    <Navbar.Brand >TodoList</Navbar.Brand>
+                    <Nav className="mr-auto">
+                    <Nav.Link>
+                        <Link to='/' style={linkStyle}>Home</Link>
+                    </Nav.Link>
+                    <Nav.Link>
+                        <Link to='/about' style={linkStyle}>About</Link>    
+                    </Nav.Link>
+                    </Nav>
                     <Toggle darkMode={this.props.darkMode} changeTheme={this.props.changeTheme}/>
-                </div>
+                </Navbar>
             </header>
         )
     }
-}
-
-const headerStyle = {
-    background: '#333',
-    color:'#fff',
-    padding: '20px'
 }
 
 const linkStyle = {
