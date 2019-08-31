@@ -1,33 +1,164 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+a {
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+::-webkit-input-placeholder { /* Edge */
+  color: red;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.light-mode {
+  background-color: #fff;
+  transition: background-color 0.25s ease-out;
+}
+
+.dark-mode {
+  background-color: #312e2e;
+  transition: background-color 0.25s ease-out;
+}
+
+.green-mode {
+  background-color:#5c8d89;
+  transition: background-color 0.25s ease-out;
+}
+
+.light-mode nav {
+  transition: background-color 0.25s ease-out;
+}
+
+.dark-mode nav {
+  background-color: #1b2938;
+  transition: background-color 0.25s ease-out;
+}
+
+.green-mode nav {
+  background-color: #74b49b;
+  transition: background-color 0.25s ease-out;
+}
+
+.light-mode #todoItem {
+  background-color:cornflowerblue;
+  transition: background-color 0.25s ease-out;
+
+}
+
+.dark-mode #todoItem {
+  background-color:rgb(66, 66, 66);
+  transition: background-color 0.25s ease-out;
+
+}
+
+.green-mode #todoItem {
+  background-color:#74b49b;
+  transition: background-color 0.25s ease-out;
+}
+
+.dark-mode #outlined-full-width{
+  background-color: #fff;
+}
+
+.green-mode #outlined-full-width{
+  background-color:#f9f8eb;
+}
+
+.light-mode .link{
+  color: cornflowerblue;
+}
+
+.dark-mode .link{
+  color: crimson;
+}
+
+.green-mode .link{
+  color: #5a3921;
+}
+
+.light-mode .MuiButton-containedPrimary {
+  color: #fff;
+  background-color: cornflowerblue;
+}
+
+.dark-mode .MuiButton-containedPrimary {
+  color: #fff;
+  background-color: crimson;
+}
+
+.green-mode .MuiButton-containedPrimary {
+  color: #fff;
+  background-color: #5a3921;
+}
+
+.light-mode .DayIcon{
+  color: goldenrod;
+}
+
+.light-mode .NightIcon{
+  color: gray;
+}
+
+.light-mode .GreenIcon{
+  color: gray;
+}
+
+.dark-mode .DayIcon{
+  color: gray;
+}
+
+.dark-mode .NightIcon{
+  color: crimson;
+}
+
+.dark-mode .GreenIcon{
+  color: gray;
+}
+
+.green-mode .DayIcon{
+  color: #333;
+}
+
+.green-mode .NightIcon{
+  color: #333;
+}
+
+.green-mode .GreenIcon{
+  color: #5a3921
+}
+
+.light-mode .delete{
+  color: #fff;
+}
+
+.dark-mode .delete{
+  color: crimson;
+}
+
+.green-mode .delete{
+  color: #5a3921;
+}
+
+.light-mode .MuiCheckbox-colorSecondary.Mui-checked {
+  color: #fff;
+}
+
+.dark-mode .MuiCheckbox-colorSecondary.Mui-checked {
+  color: crimson;
+}
+
+.green-mode .MuiCheckbox-colorSecondary.Mui-checked {
+  color: #5a3921;
+}
+
+
+.MuiButton-sizeLarge{
+  height: 50px;
 }
