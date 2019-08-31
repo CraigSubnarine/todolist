@@ -157,3 +157,8 @@ a {
 .green-mode .MuiCheckbox-colorSecondary.Mui-checked {
   color: #5a3921;
 }
+
+
+.MuiButton-sizeLarge{
+  height: 50px;
+}
