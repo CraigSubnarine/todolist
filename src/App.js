@@ -13,7 +13,7 @@ import './App.css'
 class App extends Component{
   
   state = {
-    todos:[],
+    todos:this.getInitialList(),
     themeMode: this.getInitialTheme()
   }
 
@@ -23,7 +23,10 @@ class App extends Component{
     this.setState({todos: this.state.todos.map(todo => {
         if(todo.id === id){
           todo.completed = !todo.completed
+          cookie.save('Todolist', this.state.todos, {path:'/'})
+          // console.log(cookie.load('Todolist'))
         }
+        
         return todo;
       })});
   }
@@ -31,6 +34,8 @@ class App extends Component{
   //Delete Item
   deleteItem = (id) => {
     this.setState({todos: [...this.state.todos.filter(todo => todo.id !== id)]})
+    cookie.save('Todolist', this.state.todos, {path:'/'}) 
+    // console.log(cookie.load('Todolist'))
   }
 
   //Add Item -- uuid is used to ensure unique id for new item. The demo rest API used does not increment the id past 201 when adding a new item 
@@ -38,9 +43,12 @@ class App extends Component{
     if((this.state.todos.find((todo)=> todo.title === title)) === undefined){
       const newTodo = {id:uuid.v4(), title: title,  completed: false} 
       this.setState({todos: [...this.state.todos, newTodo]})
+      cookie.save('Todolist', this.state.todos, {path:'/'})
     }else{
       alert('Already Exists')
     }
+    
+    // console.log(cookie.load('Todolist'))
   }
 
   //Changes the class of the main div therefore changing th CSS assosiated with it.
@@ -59,6 +67,16 @@ class App extends Component{
       return savedTheme
     }else{
       return 'light-mode'
+    }
+  }
+
+  getInitialList(){
+    const savedList = cookie.load('Todolist');
+    // console.log(savedTheme)
+    if (savedList){
+      return savedList
+    }else{
+      return []
     }
   }
 
