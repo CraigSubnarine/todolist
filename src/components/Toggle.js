@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './css/Toggle.css'
+import Switch from "@material-ui/core/Switch";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import DayIcon from "@material-ui/icons/WbSunnyRounded";
+import NightIcon from "@material-ui/icons/Brightness2";
+// import PropTypes from "prop-types";
+
+import color from '@material-ui/core/colors/blue';
 
 class Toggle extends Component {
 
@@ -11,18 +18,17 @@ class Toggle extends Component {
 
     return (
       <div className='toggle-conatiner'>
-        <span style={{ color: darkMode ? "grey" : "yellow" }}>☼</span>
-        <span className="toggle">
-            <input
-              checked={this.props.darkMode}
-              onChange={this.props.changeTheme}
-              id="checkbox"
-              className="checkbox"
-              type="checkbox"
-            />
-            <label htmlFor="checkbox" />
-        </span>
-        <span style={{ color: darkMode ? "white" : "grey" }}>☽</span>
+        <Grid component="label" container alignItems="center" spacing={1}>
+          <Grid item>
+            <DayIcon style={{ color: darkMode ? "grey" : "crimson" }}/>
+          </Grid>
+          <Grid item>
+            <Switch checked={darkMode} onChange={this.props.changeTheme} />
+          </Grid>
+          <Grid item>
+            <NightIcon style={{ color: darkMode ? "white" : "grey" }}/>
+          </Grid>
+        </Grid>
       </div>
     )
   }
@@ -32,5 +38,9 @@ class Toggle extends Component {
 Toggle.propTypes = {
   changeTheme: PropTypes.func.isRequired
 }
+
+// const sun = {
+//   color: '#FFFF00',
+// }
 
 export default Toggle

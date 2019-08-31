@@ -8,6 +8,7 @@ import Todos from './components/Todos'
 import AddTodo from './components/AddTodo'
 import Header from './components/layout/Header'
 import About from './components/pages/About'
+import Footer from './components/layout/Footer'
 
 import './App.css'
 
@@ -84,6 +85,7 @@ class App extends Component{
               </div>
             )}/>
             <Route exact path='/about' component={About}/>
+            <Footer darkMode={this.state.darkMode} changeTheme={this.changeTheme}/>
           </div>
         </div>
       </BrowserRouter>

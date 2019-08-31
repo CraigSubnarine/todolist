@@ -33,6 +33,10 @@
   background: #333
 }
 
+.dark-mode #outlined-full-width{
+  background-color: #fff;
+}
+
 .dark-mode .card{
   background: #333
 }
@@ -57,11 +61,10 @@ a {
   text-decoration: none;
 }
 
-.container {
-  padding: 0 1rem;
-  height: height;
+.link{
+  color: crimson;
 }
 
-#todoItem Button{
-  float: right
+.delete{
+  color: crimson;
 }

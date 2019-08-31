@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import SaveIcon from '@material-ui/icons/Save';
+
 
 class AddTodo extends Component {
   state = {
@@ -18,10 +21,24 @@ class AddTodo extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.onSubmit} style={{ display: 'flex' }}>
-        <Form.Control type="text" placeholder="New Todo" name="title" value={this.state.title} onChange={this.onChange}/>
-        <Button variant="primary" type="submit">Add</Button>
-      </Form>
+      <form onSubmit={this.onSubmit} style={{ display: 'flex' }}>
+        {/* <input type="text" placeholder="New Todo" name="title" value={this.state.title} onChange={this.onChange}/> */}
+        <TextField
+          id="outlined-full-width"
+          style={{ margin: 8 }}
+          fullWidth
+          placeholder="e.g. Walk the Dog"
+          margin="normal"
+          variant="outlined"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <Button variant="contained" color="primary">
+          <SaveIcon/>
+          Save
+        </Button>
+      </form>
     )
   }
 }
