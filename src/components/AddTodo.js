@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
 import SaveIcon from '@material-ui/icons/Save';
 
 
@@ -13,8 +12,13 @@ class AddTodo extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.addTodo(this.state.title);
-    this.setState({ title: '' });
+    if(this.state.title === ''){
+      alert('This is not a valid input')
+      return
+    }else{
+      this.props.addTodo(this.state.title);
+      this.setState({ title: '' });
+    }
   }
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
@@ -22,7 +26,6 @@ class AddTodo extends Component {
   render() {
     return (
       <form onSubmit={this.onSubmit} style={{ display: 'flex' }}>
-        {/* <input type="text" placeholder="New Todo" name="title" value={this.state.title} onChange={this.onChange}/> */}
         <TextField
           id="outlined-full-width"
           style={{ margin: 8 }}
@@ -30,11 +33,14 @@ class AddTodo extends Component {
           placeholder="e.g. Walk the Dog"
           margin="normal"
           variant="outlined"
+          name="title" 
+          value={this.state.title}
+          onChange={this.onChange}
           InputLabelProps={{
             shrink: true,
           }}
         />
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" type="submit" value="Submit">
           <SaveIcon/>
           Save
         </Button>

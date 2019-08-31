@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 import Toggle from '../Toggle'
+import NavBar from './NavBar'
 
 class Header extends Component{
         
@@ -13,17 +12,10 @@ class Header extends Component{
             <header id='header' >  
                 <Grid container justify='space-between'>
                     <Grid>
-                        <Button color="primary">
-                            <Link to='/' className='link'>Home</Link>                    
-                        </Button>
+                        <NavBar/>
                     </Grid>
                     <Grid>
-                        <Button color="primary">
-                            <Link to='/about'className='link'>About</Link>                    
-                        </Button>
-                    </Grid>
-                    <Grid>
-                        <Toggle darkMode={this.props.darkMode} changeTheme={this.props.changeTheme}/>
+                        <Toggle themeMode={this.props.themeMode} changeTheme={this.props.changeTheme}/>
                     </Grid>
 
                 </Grid>
