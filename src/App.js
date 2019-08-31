@@ -37,9 +37,9 @@ class App extends Component{
 
   //Add Item -- uuid is used to ensure unique id for new item. The demo rest API used does not increment the id past 201 when adding a new item 
   addTodo = (title) => {
-    if((this.state.todos.find((todo)=> todo.title === title)) === undefined){
+    if((this.state.todos.find((todo)=> todo.title.toLowerCase() === title.toLowerCase())) === undefined){
       const newTodo = {id:uuid.v4(), title: title,  completed: false} 
-      this.setState({todos: [...this.state.todos, newTodo]}, () => cookie.save('Todolist', this.state.todos, {path:'/'})) 
+      this.setState({todos: [...this.state.todos, newTodo]}, () => cookie.save('Todolist', this.state.todos, {path:'/'}))      
     }else{
       alert('Already Exists')
     }
