@@ -23,27 +23,23 @@ class App extends Component{
     this.setState({todos: this.state.todos.map(todo => {
         if(todo.id === id){
           todo.completed = !todo.completed
-          cookie.save('Todolist', this.state.todos, {path:'/'})
-          // console.log(cookie.load('Todolist'))
         }
-        
         return todo;
-      })});
+      })},() => cookie.save('Todolist', this.state.todos, {path:'/'}));
+      console.log(cookie.load('Todolist'))    
   }
 
   //Delete Item
   deleteItem = (id) => {
-    this.setState({todos: [...this.state.todos.filter(todo => todo.id !== id)]})
-    cookie.save('Todolist', this.state.todos, {path:'/'}) 
-    // console.log(cookie.load('Todolist'))
+    this.setState({todos: [...this.state.todos.filter(todo => todo.id !== id)]}, () => cookie.save('Todolist', this.state.todos, {path:'/'})) 
+    // console.log(this.state.todos)    
   }
 
   //Add Item -- uuid is used to ensure unique id for new item. The demo rest API used does not increment the id past 201 when adding a new item 
   addTodo = (title) => {
     if((this.state.todos.find((todo)=> todo.title === title)) === undefined){
       const newTodo = {id:uuid.v4(), title: title,  completed: false} 
-      this.setState({todos: [...this.state.todos, newTodo]})
-      cookie.save('Todolist', this.state.todos, {path:'/'})
+      this.setState({todos: [...this.state.todos, newTodo]}, () => cookie.save('Todolist', this.state.todos, {path:'/'})) 
     }else{
       alert('Already Exists')
     }
@@ -55,7 +51,7 @@ class App extends Component{
   changeTheme = (theme) => {
     //console.log(theme)
  
-    this.setState({themeMode:theme})
+    this.setState({themeMode:theme},() => console.log(this.state.todos))
     cookie.save('theme', theme, {path:'/'})
   }
 
